@@ -1,0 +1,17 @@
+$TTL 2h
+
+$ORIGIN domain.tld.
+
+@               IN      SOA     ns.domain.tld.  info.domain.tld. (
+                                2024091100      ; serial
+                                12h             ; refresh
+                                15m             ; retry
+                                3h              ; expire
+                                2h              ; TTL
+                                )
+
+                IN      NS      ns.domain.tld.
+
+in              IN      A       192.168.10.1
+
+www             IN      A       192.168.10.1

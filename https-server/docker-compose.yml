@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  nginx:
+    image: nginx:latest
+    ## Either use host network mode or uncomment the following line
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+      #- ./src:/var/www/html
+    network_mode: host
+
+  web:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php-fpm
+  php-fpm:
+    image: php:8-fpm
+    volumes:
+      - ./src:/var/www/html

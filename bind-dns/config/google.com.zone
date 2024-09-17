@@ -1,0 +1,37 @@
+; base zone file for google.com
+
+$TTL 2d                 ; default TTL for zone
+$ORIGIN google.com.    ; base domain-name
+
+; Start of Authority RR defining the key characteristics of the zone (domain)
+
+@         IN      SOA   google.com. hostmaster.google.com. (
+                                2003080800 ; serial number
+                                12h        ; refresh
+                                15m        ; update retry
+                                3w         ; expiry
+                                2h         ; minimum
+                                )
+
+           IN      NS      ns1.google.com.
+
+           IN      NS      ns2.google.net.
+
+
+        3w IN      MX  10  mail.google.com.
+
+           IN      MX  20  mail.google.net.
+
+; domain hosts includes NS and MX records defined above
+; plus any others required
+; for instance a user query for the A RR of joe.google.com will
+; return the IPv4 address 192.168.10.1 from this zone file
+
+ns1        IN      A       192.168.10.1
+mail       IN      A       192.168.10.1
+joe        IN      A       192.168.10.1
+www        IN      A       192.168.10.1
+
+; aliases ftp (ftp server) to an external domain
+
+ftp        IN      CNAME   ftp.google.net.
