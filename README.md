@@ -1,9 +1,5 @@
 # Google Login Hijacking
 
-## Disclaimer:
-
-This project was built just for educational purposes, **DO NOT USE IT IN A REAL ENVIRONMENT WITHOUT PERMISSIONS**.
-
 ## The project set up some docker containers:
 
 Supposed to be used on a **self hosted hot-spot** in a network `192.168.10.0/24`.
